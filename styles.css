@@ -74,34 +74,61 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  width: 50%;
   position: relative;
   z-index: 1;
   transition: background 0.3s ease;
 }
 
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
+/* Style for UL to make it take full width and space buttons evenly */
+ul.navbar {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-nav a::after {
+/* Style individual LI buttons */
+ul.navbar li {
+  flex: 1;
+}
+
+/* Style links inside buttons */
+ul.navbar li a {
+  display: block;
+  text-align: center;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s;
+  position: relative;
+}
+
+/* Hover underline effect */
+ul.navbar li a::after {
   content: '';
   position: absolute;
   width: 0%;
   height: 2px;
-  bottom: -4px;
+  bottom: 8px;
   left: 0;
   background: var(--accent-hover);
   transition: width 0.3s ease;
 }
 
-nav a:hover::after {
+ul.navbar li a:hover::after {
   width: 100%;
+}
+
+/* Optional: slight button raise on hover */
+ul.navbar li a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 
