@@ -48,37 +48,41 @@ body.dark nav {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Navbar styling */
 .navbar {
-  list-style: none;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin: 0;
-  padding: 0;
+  transition: background-color 0.3s ease;
 }
 
-.navbar li a {
+/* Navbar link underline on hover */
+.navbar a {
   text-decoration: none;
-  color: var(--accent);
+  color: var(--text);
   font-weight: 500;
   position: relative;
-  transition: color 0.3s ease;
 }
 
-.navbar li a::after {
+.navbar a::after {
   content: '';
   position: absolute;
-  width: 0%;
-  height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--accent);
-  transition: width 0.3s ease;
+  width: 0%;
+  height: 2px;
+  background: var(--button-hover);
+  transition: width 0.3s ease-in-out;
 }
 
-.navbar li a:hover::after {
+.navbar a:hover::after {
   width: 100%;
 }
+
 
 /* Main layout */
 main {
@@ -147,26 +151,30 @@ footer {
   color: #9ca3af;
 }
 
-
 :root {
   --bg: #ffffff;
   --text: #111111;
-  --accent: #6366f1;
-  --accent-hover: #4f46e5;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --button-gradient: linear-gradient(135deg, #4f46e5, #6366f1); /* dark gradient */
+  --button-text: white;
+  --button-hover: linear-gradient(135deg, #4338ca, #4f46e5);
 }
 
 body.dark {
   --bg: #0f172a;
   --text: #e2e8f0;
-  --accent: #a78bfa;
-  --accent-hover: #8b5cf6;
+  --navbar-bg: rgba(15, 23, 42, 0.9);
+  --button-gradient: linear-gradient(135deg, #a78bfa, #c084fc); /* light gradient */
+  --button-text: #0f172a;
+  --button-hover: linear-gradient(135deg, #c084fc, #d8b4fe);
 }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 
 header {
   background: linear-gradient(90deg, var(--accent), var(--accent-hover));
@@ -180,11 +188,6 @@ header {
 
 .-card p {
   color: var(--subtext);
-}
-
-.navbar li a,
-.project-card h2 {
-  color: var(--accent);
 }
 
 /* Toggle Button */
@@ -204,4 +207,22 @@ header {
 .toggle-darkmode:hover {
   background-color: var(--accent-hover);
   transform: scale(1.05);
+}
+
+/* Button styling */
+button, .project-button {
+  background: var(--button-gradient);
+  color: var(--button-text);
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+button:hover, .project-button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
 }
