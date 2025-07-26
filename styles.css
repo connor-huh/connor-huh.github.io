@@ -250,21 +250,3 @@ footer {
   color: var(--text);
 }
 
-
-/* Default (light mode) */
-pre code {
-  display: block;
-  padding: 1rem;
-  margin: 1rem 0;
-  background-color: #f0f0f0;
-  color: #1a1a1a;
-  border-radius: 0.5rem;
-  font-family: 'Fira Code', monospace;
-  overflow-x: auto;
-}
-
-body.dark-mode pre code {
-  background-color: #1e1e2e !important;
-  color: #e0e0e0 !important;
-}
-
