@@ -4,26 +4,26 @@
 /* === Theme Variables === */
 :root {
   /* Light mode colors */
-  --bg: #f5f5f7;
+  --bg: #e5e7eb;            /* light gray */
   --text: #1a1a1a;
   --button-bg: #1a1a1a;
   --button-text: #ffffff;
-  --button-hover: #4f46e5; /* blue-indigo */
+  --button-hover: #4f46e5;  /* blue-indigo */
   --accent: linear-gradient(to right, #6366f1, #8b5cf6);
   --nav-bg: rgba(255, 255, 255, 0.9);
   --card-bg: #ffffff;
 }
 
 body.dark {
-  /* Dark mode overrides */
-  --bg: #0f172a;
-  --text: #e2e8f0;
-  --button-bg: #e2e8f0;
+  /* Dark mode colors */
+  --bg: #1f2937;            /* dark gray */
+  --text: #f1f5f9;
+  --button-bg: #f1f5f9;
   --button-text: #1a1a1a;
-  --button-hover: #a78bfa;
+  --button-hover: #8b5cf6;
   --accent: linear-gradient(to right, #8b5cf6, #6366f1);
-  --nav-bg: rgba(15, 23, 42, 0.95);
-  --card-bg: #1e293b;
+  --nav-bg: rgba(17, 24, 39, 0.95);
+  --card-bg: #374151;
 }
 
 /* === Base Styles === */
