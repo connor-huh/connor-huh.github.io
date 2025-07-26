@@ -63,49 +63,34 @@ header p {
 }
 
 /* === Navbar === */
-nav {
-  backdrop-filter: blur(10px);
-  background-color: var(--navbar-bg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 1rem 2rem;
-  margin: -2rem auto 2rem auto;
-  border-radius: 1rem;
-  max-width: 1000px;
-  width: 90vw;               /* make nav wider but with some side margin */
+nav ul.navbar {
   display: flex;
-  justify-content: space-around; /* space links evenly */
-  align-items: center;
-  position: relative;
-  z-index: 1;
-  transition: background 0.3s ease;
-}
-
-nav a {
-  flex-grow: 1;           /* each link expands evenly */
-  text-align: center;     /* center text inside each link */
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease;
-  padding: 0.5rem 0;      /* vertical padding, no horizontal padding */
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: var(--accent-hover);
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
+  justify-content: space-between;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
+nav ul.navbar li {
+  flex: 1;
+  text-align: center;
+}
+
+nav ul.navbar li a {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  transition: background 0.3s ease;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.1); /* or use a dark translucent for dark mode */
+}
+
+nav ul.navbar li a:hover {
+  background: var(--accent-hover);
+  color: var(--button-text);
+}
 
 /* === Toggle Button === */
 .toggle {
@@ -120,6 +105,7 @@ nav a:hover::after {
 .toggle:hover {
   transform: scale(1.2);
 }
+
 
 /* === Projects Grid === */
 .projects-grid {
