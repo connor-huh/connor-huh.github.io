@@ -31,7 +31,7 @@ body.dark {
 /* === Base Styles === */
 body {
   font-family: 'Rubik', sans-serif;
-  background: var(--bg);
+  background: var(--bg) !important;
   color: var(--text);
   margin: 0;
   padding: 0;
