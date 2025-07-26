@@ -48,41 +48,6 @@ body.dark nav {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Navbar styling */
-.navbar {
-  background-color: var(--navbar-bg);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  transition: background-color 0.3s ease;
-}
-
-/* Navbar link underline on hover */
-.navbar a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-  position: relative;
-}
-
-.navbar a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--button-hover);
-  transition: width 0.3s ease-in-out;
-}
-
-.navbar a:hover::after {
-  width: 100%;
-}
-
 
 /* Main layout */
 main {
@@ -151,30 +116,6 @@ footer {
   color: #9ca3af;
 }
 
-:root {
-  --bg: #ffffff;
-  --text: #111111;
-  --navbar-bg: rgba(255, 255, 255, 0.8);
-  --button-gradient: linear-gradient(135deg, #4f46e5, #6366f1); /* dark gradient */
-  --button-text: white;
-  --button-hover: linear-gradient(135deg, #4338ca, #4f46e5);
-}
-
-body.dark {
-  --bg: #0f172a;
-  --text: #e2e8f0;
-  --navbar-bg: rgba(15, 23, 42, 0.9);
-  --button-gradient: linear-gradient(135deg, #a78bfa, #c084fc); /* light gradient */
-  --button-text: #0f172a;
-  --button-hover: linear-gradient(135deg, #c084fc, #d8b4fe);
-}
-
-body {
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 
 header {
   background: linear-gradient(90deg, var(--accent), var(--accent-hover));
@@ -209,7 +150,70 @@ header {
   transform: scale(1.05);
 }
 
-/* Button styling */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --button-gradient: linear-gradient(135deg, #4f46e5, #6366f1);
+  --button-hover: linear-gradient(135deg, #4338ca, #4f46e5);
+  --button-text: #ffffff;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #e2e8f0;
+  --navbar-bg: rgba(15, 23, 42, 0.9);
+  --button-gradient: linear-gradient(135deg, #a78bfa, #c084fc);
+  --button-hover: linear-gradient(135deg, #c084fc, #d8b4fe);
+  --button-text: #0f172a;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Inter", sans-serif;
+  padding: 0 1rem;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 800px;
+  transition: background-color 0.3s ease;
+}
+
+/* Navbar hover underline */
+.navbar a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--button-hover);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Button styles */
 button, .project-button {
   background: var(--button-gradient);
   color: var(--button-text);
