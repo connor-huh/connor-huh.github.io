@@ -242,10 +242,12 @@ footer {
 }
 
 /* === Swiftle Page === */
-.swiftle-page {
+.swiftle-content {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 2rem;
   text-align: left;
   color: var(--text);
 }
+
+
