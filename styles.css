@@ -97,6 +97,7 @@ nav {
 }
 
 nav ul.navbar {
+  background-color: transparent;
   display: flex;
   gap: 0.5rem; /* small gap between buttons */
   margin: 0;
