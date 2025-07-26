@@ -104,7 +104,7 @@ nav ul.navbar li a {
   display: flex;
   align-items: center;
   padding: 0.4rem 0.9rem;
-  height: 32px;
+  height: 44px;
   background-color: var(--button-bg); /* dynamic background color */
   color: var(--text);
   font-weight: 500;
