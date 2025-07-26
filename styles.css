@@ -263,10 +263,8 @@ pre code {
   overflow-x: auto;
 }
 
-/* When dark mode is active */
 body.dark-mode pre code {
-  background-color: #1e1e2e;
-  color: #e0e0e0;
+  background-color: #1e1e2e !important;
+  color: #e0e0e0 !important;
 }
-
 
