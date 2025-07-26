@@ -62,6 +62,12 @@ header p {
   color: #e0e7ff;
 }
 
+header h1,
+header p {
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
 /* === Navbar === */
 nav {
   backdrop-filter: blur(10px);
