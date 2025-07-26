@@ -243,6 +243,9 @@ footer {
 
 /* === Swiftle Page === */
 .swiftle-page {
-  color: var(--text);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 2rem;
   text-align: left;
+  color: var(--text);
 }
