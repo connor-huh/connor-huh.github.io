@@ -3,7 +3,7 @@
 
 /* === Theme Variables === */
 :root {
-  --bg: #f5f7fa;
+  --background: #f5f7fa;
   --text: #1e293b;
   --subtext: #475569;
   --navbar-bg: rgba(255, 255, 255, 0.75);
@@ -16,7 +16,7 @@
 }
 
 body.dark {
-  --bg: #0f172a;
+  --background: #0f172a;
   --text: #f1f5f9;
   --subtext: #cbd5e1;
   --navbar-bg: rgba(30, 41, 59, 0.85);
