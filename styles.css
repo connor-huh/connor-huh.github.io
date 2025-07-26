@@ -110,8 +110,8 @@ nav ul.navbar li a {
   display: flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  height: 32px;  /* fixed height less than navbar height */
-  background: var(--navbar-bg);
+  height: 32px;
+  background: transparent; /* make background transparent */
   color: var(--text);
   font-weight: 500;
   text-decoration: none;
@@ -120,6 +120,13 @@ nav ul.navbar li a {
   transition: color 0.3s ease;
   box-sizing: border-box;
   line-height: normal;
+  border: none;
+  box-shadow: none;
+}
+
+nav ul.navbar li a:hover {
+  color: var(--accent-hover);
+  background: transparent; /* keep background transparent on hover */
 }
 
 nav ul.navbar li a::after {
@@ -135,11 +142,6 @@ nav ul.navbar li a::after {
 
 nav ul.navbar li a:hover::after {
   width: 100%;
-}
-
-nav ul.navbar li a:hover {
-  color: var(--accent-hover);
-  background: var(--navbar-bg);
 }
 
 /* Dark mode toggle button style */
