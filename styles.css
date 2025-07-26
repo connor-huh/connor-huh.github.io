@@ -95,6 +95,11 @@ header p {
   transition: color 0.3s ease;
 }
 
+section, article {
+  font-size: var(--font-normal);
+  line-height: 1.75;
+}
+
 /* === Navbar === */
 nav {
   position: fixed;
