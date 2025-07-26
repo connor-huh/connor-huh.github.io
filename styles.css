@@ -8,8 +8,8 @@
   --subtext: #475569;
   --navbar-bg: rgba(255, 255, 255, 0.75);
   --card-bg: #ffffff;
-  --button-gradient: linear-gradient(135deg, #4f46e5, #6366f1);
-  --button-hover: linear-gradient(135deg, #4338ca, #4f46e5);
+  --button-gradient: linear-gradient(135deg, #89CFF0, #A3D2FF); /* baby blue gradient */
+  --button-hover: linear-gradient(135deg, #7AB8F5, #91C9FF);    /* slightly darker baby blue for hover */
   --button-text: #ffffff;
   --accent: #89CFF0;
   --accent-hover: #A3D2FF;
@@ -20,9 +20,9 @@ body.dark {
   --text: #f1f5f9;
   --subtext: #cbd5e1;
   --navbar-bg: rgba(30, 41, 59, 0.85);
-  --card-bg: #1e293b;
-  --button-gradient: linear-gradient(135deg, #a78bfa, #c084fc);
-  --button-hover: linear-gradient(135deg, #c084fc, #d8b4fe);
+  --card-bg: #1e293b;  
+  --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6); /* indigo gradient */
+  --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);    /* slightly darker indigo hover */
   --button-text: #0f172a;
   --accent: #6366f1;
   --accent-hover: #8b5cf6;
