@@ -71,21 +71,24 @@ nav {
   margin: -2rem auto 2rem auto;
   border-radius: 1rem;
   max-width: 1000px;
+  width: 90vw;               /* make nav wider but with some side margin */
   display: flex;
-  justify-content: center;
+  justify-content: space-around; /* space links evenly */
   align-items: center;
-  gap: 2rem;
   position: relative;
   z-index: 1;
   transition: background 0.3s ease;
 }
 
 nav a {
+  flex-grow: 1;           /* each link expands evenly */
+  text-align: center;     /* center text inside each link */
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
   position: relative;
   transition: color 0.3s ease;
+  padding: 0.5rem 0;      /* vertical padding, no horizontal padding */
 }
 
 nav a::after {
@@ -102,6 +105,7 @@ nav a::after {
 nav a:hover::after {
   width: 100%;
 }
+
 
 /* === Toggle Button === */
 .toggle {
