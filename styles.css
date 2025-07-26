@@ -75,6 +75,7 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  width: 50%;
   position: relative;
   z-index: 1;
   transition: background 0.3s ease;
