@@ -34,7 +34,7 @@ body.dark {
 body {
   font-family: 'Rubik', sans-serif;
   background: var(--bg) !important;
-  color: var(--text);
+  color: var(--text) !important;
   margin: 0;
   padding: 0;
   line-height: 1.6;
