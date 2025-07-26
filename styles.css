@@ -3,10 +3,11 @@
 
 /* === Theme Variables === */
 :root {
-  --font-base: 18px; /* Previously 14–16px likely */
+  --font-base: 20px; /* Previously 14–16px likely */
   --font-lg: 1.5rem;
   --font-xl: 2.25rem;
   --font-xxl: 3rem;
+  --font-normal: 2rem;
   --padding-base: 1.5rem;
   --padding-lg: 2rem;
   
@@ -83,7 +84,7 @@ h3 {
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: var(--font-normal);
   color: #e0e7ff;
 }
 
