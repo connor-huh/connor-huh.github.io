@@ -76,36 +76,53 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--navbar-bg); /* solid background */
+  background-color: var(--navbar-bg);
   backdrop-filter: blur(10px);
-  padding: 0.5rem 3rem;
+  padding: 0 2rem; /* horizontal padding */
   border-radius: 0 0 1rem 1rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   height: 48px;
   z-index: 9999;
   transition: transform 0.3s ease, background 0.3s ease;
   box-shadow: none;
+  box-sizing: border-box; /* include padding in width */
+  overflow-x: hidden; /* prevent overflow */
 }
 
-nav.hidden {
-  transform: translateY(-100%);
+nav ul.navbar {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  align-items: center;
 }
 
-nav a {
+nav ul.navbar li {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.navbar li a {
+  display: flex;
+  align-items: center;
   padding: 0.25rem 0.75rem;
-  background: var(--navbar-bg); /* match navbar background */
+  height: 32px;  /* fixed height less than navbar height */
+  background: var(--navbar-bg);
   color: var(--text);
   font-weight: 500;
   text-decoration: none;
   position: relative;
-  transition: color 0.3s ease;
   border-radius: 0.5rem;
+  transition: color 0.3s ease;
+  box-sizing: border-box;
+  line-height: normal;
 }
 
-nav a::after {
+nav ul.navbar li a::after {
   content: '';
   position: absolute;
   width: 0%;
@@ -116,25 +133,28 @@ nav a::after {
   transition: width 0.3s ease;
 }
 
-nav a:hover::after {
+nav ul.navbar li a:hover::after {
   width: 100%;
 }
 
-nav a:hover {
+nav ul.navbar li a:hover {
   color: var(--accent-hover);
-  background: var(--navbar-bg); /* keep background consistent on hover */
+  background: var(--navbar-bg);
 }
 
 /* Dark mode toggle button style */
 .toggle {
   font-size: 1.2rem;
-  background: var(--navbar-bg); /* same as navbar */
+  background: var(--navbar-bg);
   border: none;
   cursor: pointer;
   color: var(--text);
   transition: transform 0.2s ease, color 0.3s ease;
-  padding: 0.25rem 0.5rem;
+  padding: 0 0.5rem;
+  height: 32px; /* same height as buttons */
   border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .toggle:hover {
