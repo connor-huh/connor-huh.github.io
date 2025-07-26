@@ -11,8 +11,8 @@
   --button-gradient: linear-gradient(135deg, #4f46e5, #6366f1);
   --button-hover: linear-gradient(135deg, #4338ca, #4f46e5);
   --button-text: #ffffff;
-  --accent: #6366f1;
-  --accent-hover: #8b5cf6;
+  --accent: #a78bfa;
+  --accent-hover: #c084fc;
 }
 
 body.dark {
@@ -24,8 +24,8 @@ body.dark {
   --button-gradient: linear-gradient(135deg, #a78bfa, #c084fc);
   --button-hover: linear-gradient(135deg, #c084fc, #d8b4fe);
   --button-text: #0f172a;
-  --accent: #a78bfa;
-  --accent-hover: #c084fc;
+  --accent: #6366f1;
+  --accent-hover: #8b5cf6;
 }
 
 /* === Base Styles === */
