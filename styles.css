@@ -148,7 +148,7 @@ nav ul.navbar li a:hover::after {
 /* Dark mode toggle button style */
 .toggle {
   font-size: 1.2rem;
-  background: var(--navbar-bg);
+  background: transparent;
   border: none;
   cursor: pointer;
   color: var(--text);
