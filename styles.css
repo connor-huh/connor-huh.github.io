@@ -3,13 +3,13 @@
 
 /* === Theme Variables === */
 :root {
-  --font-base: 30px; /* Previously 14–16px likely */
-  --font-lg: 1.5rem;
-  --font-xl: 2.25rem;
-  --font-xxl: 3rem;
-  --font-normal: 2rem;
-  --padding-base: 1.5rem;
-  --padding-lg: 2rem;
+  --font-base: 25px;       /* Body text */
+  --font-normal: 1.25rem;  /* 31.25px */
+  --font-lg: 1.5rem;       /* 37.5px */
+  --font-xl: 2rem;         /* 50px */
+  --font-xxl: 3rem;        /* 75px */
+  --padding-base: 1.5rem;  /* 37.5px */
+  --padding-lg: 2rem;      /* 50px */
   
   --bg: #f5f7fa;
   --text: #1e293b;
