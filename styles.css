@@ -76,14 +76,14 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--navbar-bg); /* solid background, no transparency */
+  background-color: var(--navbar-bg); /* solid background */
   backdrop-filter: blur(10px);
-  padding: 0.5rem 3rem; /* added more padding on left & right */
+  padding: 0.5rem 3rem;
   border-radius: 0 0 1rem 1rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   height: 48px;
   z-index: 9999;
   transition: transform 0.3s ease, background 0.3s ease;
@@ -96,7 +96,7 @@ nav.hidden {
 
 nav a {
   padding: 0.25rem 0.75rem;
-  background: transparent;
+  background: var(--navbar-bg); /* match navbar background */
   color: var(--text);
   font-weight: 500;
   text-decoration: none;
@@ -122,39 +122,25 @@ nav a:hover::after {
 
 nav a:hover {
   color: var(--accent-hover);
+  background: var(--navbar-bg); /* keep background consistent on hover */
 }
 
 /* Dark mode toggle button style */
 .toggle {
   font-size: 1.2rem;
-  background: transparent;
+  background: var(--navbar-bg); /* same as navbar */
   border: none;
   cursor: pointer;
   color: var(--text);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.3s ease;
   padding: 0.25rem 0.5rem;
   border-radius: 0.5rem;
 }
 
 .toggle:hover {
   transform: scale(1.2);
-  background: var(--button-hover);
-  color: var(--button-text);
-}
-
-
-/* === Toggle Button === */
-.toggle {
-  margin-left: auto;
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text);
-  transition: transform 0.2s ease;
-}
-.toggle:hover {
-  transform: scale(1.2);
+  color: var(--accent-hover);
+  background: var(--navbar-bg);
 }
 
 
