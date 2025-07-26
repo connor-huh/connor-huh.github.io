@@ -263,12 +263,10 @@ pre code {
   overflow-x: auto;
 }
 
-/* Dark mode override */
-@media (prefers-color-scheme: dark) {
-  pre code {
-    background-color: #1e1e2e;
-    color: #e0e0e0;
-  }
+/* When dark mode is active */
+body.dark-mode pre code {
+  background-color: #1e1e2e;
+  color: #e0e0e0;
 }
 
 
