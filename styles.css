@@ -114,7 +114,10 @@ ul.navbar li a {
   display: block;
   text-align: center;
   padding: 0.75rem;
-  background: var(--navbar-button-bg);
+  background: rgba(255, 255, 255, 0.15); /* glassy white */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* frosted border */
   border-radius: 0.75rem;
   color: var(--text);
   text-decoration: none;
@@ -122,6 +125,7 @@ ul.navbar li a {
   transition: background 0.3s ease, transform 0.2s;
   position: relative;
 }
+
 
 /* Hover underline effect */
 ul.navbar li a::after {
@@ -141,7 +145,7 @@ ul.navbar li a:hover::after {
 
 /* Optional: slight button raise on hover */
 ul.navbar li a:hover {
-  background: var(--navbar-button-hover-bg);
+  background: transparent;
   transform: translateY(-2px);
 }
 
