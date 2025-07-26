@@ -1,13 +1,17 @@
+/* Font import (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+/* Base styles */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f9fafb; /* light gray background */
-  color: #1f2937; /* zinc-800 */
+  background-color: #f5f7fa;
+  color: #1e293b;
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 
+/* Navbar styles */
 nav {
   background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -28,13 +32,13 @@ nav {
 
 .navbar li a {
   text-decoration: none;
-  color: #2563eb; /* blue-600 */
+  color: #6366f1; /* Indigo-500 */
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .navbar li a:hover {
-  color: #1d4ed8; /* darker on hover */
+  color: #4f46e5; /* Indigo-600 */
   text-decoration: underline;
 }
 
@@ -50,14 +54,15 @@ h1 {
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: center;
+  color: #1e293b; /* Slate-800 */
 }
 
 p {
-  color: #4b5563; /* gray-600 */
+  color: #475569; /* Slate-600 */
   font-size: 1.1rem;
 }
 
-
+/* Project grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -81,13 +86,16 @@ p {
 .project-card h2 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  color: #1e293b;
 }
 
 .project-card a {
-  color: #4f46e5; /* indigo-600 */
+  color: #6366f1; /* Indigo-500 */
   text-decoration: none;
+  font-weight: 600;
 }
 
 .project-card a:hover {
+  color: #4f46e5; /* Indigo-600 */
   text-decoration: underline;
 }
