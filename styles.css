@@ -3,7 +3,7 @@
 
 /* === Theme Variables === */
 :root {
-  --font-base: 40px; /* Previously 14–16px likely */
+  --font-base: 30px; /* Previously 14–16px likely */
   --font-lg: 1.5rem;
   --font-xl: 2.25rem;
   --font-xxl: 3rem;
@@ -104,7 +104,7 @@ section, article {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 2rem;
-  font-size: 1.25rem;
+  font-size: var(--font-base);
   line-height: 1.75;
   font-family: 'Rubik', sans-serif;
 }
