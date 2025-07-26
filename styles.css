@@ -10,7 +10,7 @@
   --card-bg: #ffffff;
   --button-gradient: linear-gradient(135deg, #89CFF0, #A3D2FF); /* baby blue gradient */
   --button-hover: linear-gradient(135deg, #7AB8F5, #91C9FF);    /* slightly darker baby blue for hover */
-  --button-text: #ffffff;
+  --button-text: #0f172a;
   --accent: #89CFF0;
   --accent-hover: #A3D2FF;
 }
@@ -23,7 +23,7 @@ body.dark {
   --card-bg: #1e293b;  
   --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6); /* indigo gradient */
   --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);    /* slightly darker indigo hover */
-  --button-text: #0f172a;
+  --button-text: #ffffff;
   --accent: #6366f1;
   --accent-hover: #8b5cf6;
 }
