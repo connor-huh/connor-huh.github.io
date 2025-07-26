@@ -95,6 +95,12 @@ ul.navbar li {
   flex: 1;
 }
 
+ul.navbar,
+ul.navbar li {
+  background: transparent;
+  box-shadow: none;
+}
+
 /* Style links inside buttons */
 ul.navbar li a {
   display: block;
