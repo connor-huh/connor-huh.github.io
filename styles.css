@@ -77,44 +77,57 @@ nav {
   left: 0;
   width: 100%;
   backdrop-filter: blur(10px);
-  background-color: var(--navbar-bg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 1rem 2rem;
+  background-color: transparent; /* Make navbar background invisible */
+  padding: 0.5rem 2rem;            /* Slimmer vertical padding */
   border-radius: 0 0 1rem 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;      /* Right align buttons */
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;                     /* Smaller gap */
+  height: 48px;                  /* Fixed, slim height */
   z-index: 9999;
   transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: none;              /* Remove any shadows for minimal look */
 }
 
-/* Hidden state moves nav up by full height (hide it) */
+/* Hide navbar by sliding it up */
 nav.hidden {
   transform: translateY(-100%);
 }
 
+/* Navbar links styling */
+nav a {
+  padding: 0.25rem 0.75rem;      /* Smaller padding for less tall buttons */
+  background: transparent;       /* Transparent backgrounds */
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  border-radius: 0.5rem;         /* Rounded edges for buttons */
+}
+
 /* Hover underline effect */
-ul.navbar li a::after {
+nav a::after {
   content: '';
   position: absolute;
   width: 0%;
   height: 2px;
-  bottom: 8px;
+  bottom: 0;
   left: 0;
   background: var(--accent-hover);
   transition: width 0.3s ease;
 }
 
-ul.navbar li a:hover::after {
+nav a:hover::after {
   width: 100%;
 }
 
-/* Optional: slight button raise on hover */
-ul.navbar li a:hover {
-  background: var(--navbar-button-hover-bg);
-  transform: translateY(-2px);
+/* On hover, optionally slightly change text color */
+nav a:hover {
+  color: var(--accent-hover);
 }
+
 
 
 /* === Toggle Button === */
