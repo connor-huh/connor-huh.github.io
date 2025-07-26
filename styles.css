@@ -9,6 +9,8 @@
   --navbar-bg: rgba(255, 255, 255, 0.75);
   --navbar-button-bg: #e0e0e0; /* <- Light gray instead of white */
   --card-bg: #ffffff;
+  --button-bg: #e0e0e0;
+  --button-hover-bg: #d4d4d4;
   --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6); /* indigo gradient */
   --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);    /* slightly darker indigo hover */
   --button-text: #0f172a;
@@ -23,10 +25,12 @@ body.dark {
   --navbar-bg: rgba(30, 41, 59, 0.85);
   --navbar-button-bg: #2a2a2a;
   --card-bg: #1e293b;  
+  --button-bg: #2a2a2a;
+  --button-hover-bg: #444;
   --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6); /* indigo gradient */
   --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);    /* slightly darker indigo hover */
   --button-text: #ffffff;
-  --accent: #6366f1;
+  --accent: #8b5cf6;
   --accent-hover: #8b5cf6;
 }
 
@@ -105,21 +109,21 @@ nav ul.navbar li a {
   align-items: center;
   padding: 0.4rem 0.9rem;
   height: 44px;
-  background-color: var(--button-bg); /* dynamic background color */
+  background-color: transparent;
   color: var(--text);
   font-weight: 500;
   text-decoration: none;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
-  border: none;
+  border: 1px solid var(--button-bg);
   box-shadow: none;
   box-sizing: border-box;
 }
 
 /* Hover effect */
 nav ul.navbar li a:hover {
-  background-color: var(--button-hover-bg); /* hover color */
+  background-color: var(--button-bg);
   color: var(--accent-hover);
 }
 
