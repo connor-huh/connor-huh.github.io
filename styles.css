@@ -3,7 +3,7 @@
 
 /* === Theme Variables === */
 :root {
-  --font-base: 20px; /* Previously 14–16px likely */
+  --font-base: 40px; /* Previously 14–16px likely */
   --font-lg: 1.5rem;
   --font-xl: 2.25rem;
   --font-xxl: 3rem;
@@ -56,6 +56,7 @@ body {
 
 main {
   padding: 2rem;
+  font-size: var(--font-base);
   text-align: left;
 }
 
