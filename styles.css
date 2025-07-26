@@ -76,38 +76,35 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  background-color: var(--navbar-bg); /* solid background, no transparency */
   backdrop-filter: blur(10px);
-  background-color: transparent; /* Make navbar background invisible */
-  padding: 0.5rem 2rem;            /* Slimmer vertical padding */
+  padding: 0.5rem 3rem; /* added more padding on left & right */
   border-radius: 0 0 1rem 1rem;
   display: flex;
-  justify-content: flex-end;      /* Right align buttons */
+  justify-content: flex-end;
   align-items: center;
-  gap: 1rem;                     /* Smaller gap */
-  height: 48px;                  /* Fixed, slim height */
+  gap: 1rem;
+  height: 48px;
   z-index: 9999;
   transition: transform 0.3s ease, background 0.3s ease;
-  box-shadow: none;              /* Remove any shadows for minimal look */
+  box-shadow: none;
 }
 
-/* Hide navbar by sliding it up */
 nav.hidden {
   transform: translateY(-100%);
 }
 
-/* Navbar links styling */
 nav a {
-  padding: 0.25rem 0.75rem;      /* Smaller padding for less tall buttons */
-  background: transparent;       /* Transparent backgrounds */
+  padding: 0.25rem 0.75rem;
+  background: transparent;
   color: var(--text);
   font-weight: 500;
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
-  border-radius: 0.5rem;         /* Rounded edges for buttons */
+  border-radius: 0.5rem;
 }
 
-/* Hover underline effect */
 nav a::after {
   content: '';
   position: absolute;
@@ -123,11 +120,27 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* On hover, optionally slightly change text color */
 nav a:hover {
   color: var(--accent-hover);
 }
 
+/* Dark mode toggle button style */
+.toggle {
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  transition: transform 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.toggle:hover {
+  transform: scale(1.2);
+  background: var(--button-hover);
+  color: var(--button-text);
+}
 
 
 /* === Toggle Button === */
