@@ -265,7 +265,7 @@ nav ul.navbar li a:hover::after {
 /* === Publish Date === */
 .project-date {
   font-size: var(--font-base);
-  color: var(--subtext);
+  color: #D3D3D3;
   margin-bottom: 1rem;
 }
 
