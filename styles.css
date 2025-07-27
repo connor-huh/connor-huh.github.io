@@ -123,40 +123,46 @@ nav {
   width: 100%;
   background-color: var(--navbar-bg);
   backdrop-filter: blur(10px);
-  padding: 0 1.5rem;
+  padding: var(--padding-base) var(--padding-lg);
   display: flex;
+  justify-content: space-between; /* space between brand and nav/toggle */
   align-items: center;
-  justify-content: space-between;
-  height: 52px;
-  z-index: 9999;
+  height: 60px;
   border-radius: 0 0 1rem 1rem;
+  z-index: 9999;
   box-sizing: border-box;
 }
 
-/* Brand name on far left */
+/* Brand name on the far left */
 .nav-brand {
   font-weight: bold;
   font-size: 1.3rem;
   color: var(--text-color);
-  margin-right: auto;
-  padding: 0 0.75rem;
+  padding-left: 0.5rem;
 }
 
-/* Navbar links */
-nav ul.navbar {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 0.5rem;
-}
-
-nav ul.navbar li a {
+/* Nav links on the right */
+nav .nav-right {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  padding: 0.9rem 1.5rem;
+  gap: 1rem;
+}
+
+/* Navbar buttons */
+ul.navbar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.navbar li a {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.3rem;
+  height: 52px;
   background-color: transparent;
   color: var(--text);
   font-weight: 500;
@@ -164,86 +170,73 @@ nav ul.navbar li a {
   border-radius: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
-}
-
-/* Remove borders */
-nav ul.navbar li a {
-  border: none;
+  border: none; /* removed thin border */
   box-shadow: none;
 }
 
-/* Hover effect */
-nav ul.navbar li a:hover {
+ul.navbar li a:hover {
   background-color: var(--button-bg);
   color: var(--accent-hover);
 }
 
-/* Underline animation */
-nav ul.navbar li a::after {
+/* Hover underline animation */
+ul.navbar li a::after {
   content: '';
   position: absolute;
-  bottom: 6px; /* visible underline */
-  left: 0;
   width: 0%;
   height: 2px;
-  background-color: var(--accent-hover);
+  bottom: 6px; /* move up slightly */
+  left: 0;
+  background: var(--accent-hover);
   transition: width 0.3s ease;
 }
 
-nav ul.navbar li a:hover::after {
+ul.navbar li a:hover::after {
   width: 100%;
 }
 
-/* === Dark Mode Slider Toggle === */
+/* === Dark Mode Slider === */
 .theme-switch {
   position: relative;
   width: 60px;
-  height: 32px;
-  margin-left: 1.5rem;
+  height: 30px;
+  background-color: var(--background-secondary);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-switch .emoji {
+  z-index: 2;
 }
 
 .theme-switch input {
   opacity: 0;
   width: 0;
   height: 0;
+  position: absolute;
 }
 
 .slider {
-  background-color: var(--background-secondary);
-  border-radius: 2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.2rem;
-  padding: 0 6px;
-  position: relative;
-  height: 100%;
-  transition: background 0.3s ease;
-}
-
-.slider span {
-  z-index: 2;
-  color: var(--text);
-  pointer-events: none;
-}
-
-.slider::before {
-  content: "";
   position: absolute;
-  height: 24px;
-  width: 24px;
-  left: 4px;
-  bottom: 4px;
-  background-color: var(--accent);
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
+  background-color: var(--accent);
   transition: transform 0.3s ease;
+  left: 4px;
+  top: 4px;
   z-index: 1;
 }
 
-/* Move knob when checked */
-.theme-switch input:checked + .slider::before {
-  transform: translateX(28px);
+/* When toggled (dark mode ON) */
+.theme-switch input:checked + .slider {
+  transform: translateX(30px);
 }
 
 /* === Projects Grid === */
