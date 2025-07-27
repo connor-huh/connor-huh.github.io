@@ -9,139 +9,77 @@
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
-  <style>
-    body {
-      font-family: 'Merriweather', serif;
-      line-height: 1.7;
-      font-size: 1.1rem;
-      margin: 0;
-      padding: 0;
-      background: #fdfcfb;
-      color: #333;
-    }
-
-    .nav-wrapper {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0.5rem 1rem;
-    }
-
-    .navbar {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #333;
-      border-radius: 0 0 10px 10px;
-      display: flex;
-      justify-content: space-around;
-    }
-
-    .navbar a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 1.2rem 2rem;
-      text-decoration: none;
-      font-family: 'Merriweather', serif;
-    }
-
-    .navbar a:hover {
-      background-color: #555;
-    }
-
-    .content {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-    }
-
-    code, pre {
-      font-family: 'Fira Code', monospace;
-      font-size: 15px !important;
-    }
-
-    pre {
-      background-color: #2d2d2d;
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    video {
-      display: block;
-      max-width: 100%;
-      margin: 2rem auto;
-      border: 2px solid #ccc;
-      border-radius: 12px;
-    }
-  </style>
 </head>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-    const toggleBtn = document.getElementById('toggle-dark');
-
-    function applyTheme() {
-      const isDark = body.classList.contains('dark');
-      toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      body.classList.add('dark');
-    }
-    applyTheme();
-
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      applyTheme();
-    });
-  });
-  </script>
-  <script>
-  let lastScrollY = window.scrollY;
-  const nav = document.querySelector('nav');
-
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 50) {
-      // Scrolling down and past 50px, hide navbar
-      nav.classList.add('hidden');
-    } else {
-      // Scrolling up, show navbar
-      nav.classList.remove('hidden');
-    }
-    lastScrollY = currentScrollY;
-  });
-</script>
-
 <body>
-  <header>
-    <h1>Home</h1>
-    <p>some description here</p>
-  </header>
-
   <nav>
-    <ul class="navbar">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-    <button id="toggle-dark" class="toggle" aria-label="Toggle dark mode">🌙</button>
+    <div class="nav-brand">Connor Huh</div>
+  
+    <div class="nav-right">
+      <ul class="navbar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+  
+      <label class="theme-switch" for="mode-toggle">
+        <input type="checkbox" id="mode-toggle" />
+        <span class="slider"></span>
+        <span class="emoji sun">☀️</span>
+        <span class="emoji moon">🌙</span>
+      </label>
+    </div>
   </nav>
-
+  <header>
+    <h1>Beating Swiftle with Python and PyAutoGUI</h1>
+    <p>07-25-2025</p>
+  </header>
+</body>
   <main>
-    <p>text goes here</p>
+    <div class="content">
+      <p>text goes here</p>
+    </div>
   </main>
-
   <footer>
     © 2025 Connor Huh. All rights reserved.
   </footer>
+  <!-- JS scroll behavior -->
+  <script>
+    let lastScrollY = window.scrollY;
+    const nav = document.querySelector('nav');
+  
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        nav.classList.add('hidden');
+      } else {
+        nav.classList.remove('hidden');
+      }
+      lastScrollY = currentScrollY;
+    });
+  
+    // Dark mode toggle
+    const modeToggle = document.getElementById("mode-toggle");
+    const body = document.body;
+  
+    // On load, set toggle position to current theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      body.classList.add('dark');
+      modeToggle.checked = true;
+    } else {
+      body.classList.remove('dark');
+      modeToggle.checked = false;
+    }
+  
+    modeToggle.addEventListener("change", function () {
+      if (this.checked) {
+        body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 </body>
 </html>
