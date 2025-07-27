@@ -198,21 +198,18 @@ ul.navbar li a:hover::after {
 /* === Dark Mode Slider === */
 .theme-switch {
   position: relative;
-  width: 60px;
-  height: 30px;
-  background-color: var(--background-secondary);
-  border-radius: 30px;
+  width: 70px;       /* a bit wider */
+  height: 38px;      /* a bit taller */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--button-bg);
+  border-radius: 30px;
   padding: 0 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.theme-switch .emoji {
-  z-index: 2;
+  user-select: none;
+  font-size: 1.6rem; /* bigger emojis */
+  box-sizing: border-box;
 }
 
 .theme-switch input {
@@ -224,19 +221,40 @@ ul.navbar li a:hover::after {
 
 .slider {
   position: absolute;
-  height: 22px;
-  width: 22px;
-  border-radius: 50%;
-  background-color: var(--accent);
-  transition: transform 0.3s ease;
-  left: 4px;
   top: 4px;
-  z-index: 1;
+  left: 4px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 2;
 }
 
-/* When toggled (dark mode ON) */
 .theme-switch input:checked + .slider {
-  transform: translateX(30px);
+  transform: translateX(32px);
+}
+
+.theme-switch .emoji {
+  pointer-events: none; /* so click goes to checkbox */
+  z-index: 1;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  line-height: 1;
+  font-size: 1.6rem;
+  color: var(--subtext);
+}
+
+.theme-switch .emoji.sun {
+  order: 1;
+}
+
+.theme-switch .emoji.moon {
+  order: 2;
 }
 
 /* === Projects Grid === */
