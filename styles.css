@@ -212,9 +212,17 @@ nav ul.navbar li a:hover::after {
 /* === Projects Grid === */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* slightly wider */
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* increased min width from 280px to 320px */
+  gap: 2rem;
   margin-top: 2rem;
+}
+
+/* Date styling */
+.project-date {
+  font-size: 0.85rem;         /* smaller font */
+  font-style: italic;         /* italic */
+  color: #666666;             /* medium gray */
+  margin-bottom: 0.5rem;      /* spacing below date */
 }
 
 /* === Project Card === */
