@@ -137,6 +137,14 @@ nav {
   overflow-x: hidden; /* prevent overflow */
 }
 
+.nav-brand {
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-right: 2rem;
+  color: var(--text-color);
+  pointer-events: none;
+}
+
 nav ul.navbar {
   background-color: transparent;
   display: flex;
@@ -177,6 +185,7 @@ nav ul.navbar li a::after {
   width: 0%;
   height: 2px;
   bottom: 0;
+  margin-top: -2px;
   left: 0;
   background: var(--accent-hover);
   transition: width 0.3s ease;
@@ -323,6 +332,12 @@ nav ul.navbar li a:hover::after {
   background: var(--button-hover);
 }
 
+.project-buttons a,
+.project-card a,
+.project-button {
+  border: none; /* Add this */
+}
+
 /* === General reusable button style (optional) === */
 .project-button {
   background: var(--button-gradient);
@@ -357,4 +372,52 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+/* === other stuff idk
+
+.theme-switch {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 60px;
+  height: 32px;
+  margin-left: 1rem;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-secondary);
+  border-radius: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(28px);
 }
