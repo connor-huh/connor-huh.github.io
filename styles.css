@@ -40,7 +40,7 @@ body.dark {
   --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6); /* indigo gradient */
   --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);    /* slightly darker indigo hover */
   --button-text: #ffffff;
-  --accent: #8b5cf6;
+  --accent: #6366f1;
   --accent-hover: #8b5cf6;
   --toggle-bg: #222;         /* dark track in light mode */
   --toggle-bg-dark: #ddd;    /* light track in dark mode */
