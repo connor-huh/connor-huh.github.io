@@ -212,18 +212,23 @@ nav ul.navbar li a:hover::after {
 /* === Projects Grid === */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* increased min width from 280px to 320px */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* bump min width to 400px */
   gap: 2rem;
   margin-top: 2rem;
+  max-width: 900px;           /* constrain max grid width for better control */
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Date styling */
+
 .project-date {
-  font-size: 0.85rem;         /* smaller font */
-  font-style: italic;         /* italic */
-  color: #666666;             /* medium gray */
-  margin-bottom: 0.5rem;      /* spacing below date */
+  font-size: 0.75rem;         /* smaller font */
+  font-style: italic;
+  color: #888888;             /* lighter gray */
+  margin-bottom: 0.5rem;
+  display: block;             /* make sure it takes full width */
 }
+
 
 /* === Project Card === */
 .project-card {
@@ -235,6 +240,13 @@ nav ul.navbar li a:hover::after {
   margin: 0 auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+@media (min-width: 850px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
 }
 
 .project-card:hover {
@@ -273,27 +285,46 @@ nav ul.navbar li a:hover::after {
 }
 
 /* === Buttons inside Cards === */
-.project-buttons a,
+/* === Buttons inside project cards (bigger "Read More" buttons) === */
 .project-card a {
   display: inline-block;
-  padding: 0.4rem 1rem; /* shorter buttons */
-  font-size: 1rem;      /* smaller text */
+  margin-top: 0.75rem;
+  padding: 0.8rem 2.5rem;       /* bigger padding for wider buttons */
+  font-size: 1.1rem;            /* larger text */
+  font-weight: 600;
   background: var(--button-gradient);
   color: var(--button-text);
   text-decoration: none;
-  border-radius: 0.5rem;
-  font-weight: 500;
+  border-radius: 9999px;        /* pill-shaped */
   box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.project-buttons a:hover,
 .project-card a:hover {
   transform: scale(1.05);
   background: var(--button-hover);
 }
 
-/* === General Button Style (Optional) === */
+/* === Smaller buttons elsewhere (e.g. project-buttons) === */
+.project-buttons a {
+  display: inline-block;
+  padding: 0.4rem 1rem;         /* smaller padding */
+  font-size: 1rem;              /* smaller text */
+  font-weight: 500;
+  background: var(--button-gradient);
+  color: var(--button-text);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.project-buttons a:hover {
+  transform: scale(1.05);
+  background: var(--button-hover);
+}
+
+/* === General reusable button style (optional) === */
 .project-button {
   background: var(--button-gradient);
   color: var(--button-text);
