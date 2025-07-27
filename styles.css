@@ -24,6 +24,8 @@
   --button-text: #0f172a;
   --accent: #6366f1;
   --accent-hover: #8b5cf6;
+  --toggle-bg: #222;         /* dark track in light mode */
+  --toggle-bg-dark: #ddd;    /* light track in dark mode */
 }
 
 body.dark {
@@ -40,6 +42,8 @@ body.dark {
   --button-text: #ffffff;
   --accent: #8b5cf6;
   --accent-hover: #8b5cf6;
+  --toggle-bg: #222;         /* dark track in light mode */
+  --toggle-bg-dark: #ddd;    /* light track in dark mode */
 }
 
 /* === Base Styles === */
@@ -198,18 +202,22 @@ ul.navbar li a:hover::after {
 /* === Dark Mode Slider === */
 .theme-switch {
   position: relative;
-  width: 70px;       /* a bit wider */
-  height: 38px;      /* a bit taller */
+  width: 70px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--button-bg);
   border-radius: 30px;
   padding: 0 8px;
   cursor: pointer;
   user-select: none;
-  font-size: 1.6rem; /* bigger emojis */
+  font-size: 1.6rem;
   box-sizing: border-box;
+  background-color: var(--toggle-bg);
+}
+
+body.dark .theme-switch {
+  background-color: var(--toggle-bg-dark);
 }
 
 .theme-switch input {
