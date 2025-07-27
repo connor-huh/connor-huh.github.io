@@ -212,8 +212,8 @@ nav ul.navbar li a:hover::after {
 /* === Projects Grid === */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* slightly wider */
+  gap: 2.5rem;
   margin-top: 2rem;
 }
 
@@ -222,59 +222,82 @@ nav ul.navbar li a:hover::after {
   background-color: var(--card-bg);
   color: var(--text);
   border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.project-card h2 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+/* === Project Title === */
+.project-card h2,
+.project-title {
+  font-size: var(--font-xl); /* bigger title */
+  margin-bottom: 0.25rem;
   color: var(--text);
 }
 
-.project-card p {
+/* === Publish Date === */
+.project-date {
+  font-size: var(--font-base);
+  color: var(--subtext);
+  margin-bottom: 1rem;
+}
+
+/* === Description === */
+.project-card p,
+.project-description {
+  font-size: var(--font-lg); /* slightly bigger description */
+  margin-bottom: 1.25rem;
   color: var(--subtext);
 }
 
+/* === Buttons Container === */
+.project-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 /* === Buttons inside Cards === */
+.project-buttons a,
 .project-card a {
   display: inline-block;
-  margin-top: 0.75rem;
+  padding: 0.4rem 1rem; /* shorter buttons */
+  font-size: 1rem;      /* smaller text */
   background: var(--button-gradient);
   color: var(--button-text);
   text-decoration: none;
-  border-radius: 9999px;
+  border-radius: 0.5rem;
   font-weight: 500;
-  font-size: var(--font-base);
-  padding: var(--padding-base);
-  max-width: 800px;
   box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
   transition: transform 0.2s ease, background 0.3s ease;
 }
 
+.project-buttons a:hover,
 .project-card a:hover {
   transform: scale(1.05);
   background: var(--button-hover);
 }
 
-/* === General Button Style === */
+/* === General Button Style (Optional) === */
 .project-button {
   background: var(--button-gradient);
   color: var(--button-text);
   border: none;
-  border-radius: 12px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   margin-top: 2rem;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 .project-button:hover {
   background: var(--button-hover);
   transform: translateY(-2px);
