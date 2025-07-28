@@ -18,160 +18,119 @@
     graphBg.style.backgroundPosition = `${moveX}px ${moveY}px, ${moveX}px ${moveY}px`;
   });
 </script>
-<body>
-  <canvas id="background-canvas"></canvas>
-  <nav class="navbar">
-    <div class="logo">Connor Huh</div>
-    <div class="toggle-container">
-      <label class="switch">
-        <input type="checkbox" id="darkModeToggle" />
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </nav>
-
-  <header class="header">
-    <div class="header-content">
-      <h1>Connor Huh</h1>
-      <p class="tagline">Exploring the world through math, code, and curiosity.</p>
-    </div>
-    <div class="header-bg-equation">
-      <span class="equation">∑<sub>n=1</sub><sup>∞</sup> 1/n² = π²/6</span>
-      <span class="equation">e<sup>iπ</sup> + 1 = 0</span>
-      <span class="equation">f(x) = ∫<sub>a</sub><sup>b</sup> g(t) dt</span>
-    </div>
-  </header>
-  <main>
-    <div class="graph-background" aria-hidden="true"></div>
-    <section class="about">
-      <h2>About Me</h2>
-      <p>
-        Hi! I’m Connor, a senior from the Bay Area passionate about applying mathematics, programming, and creative problem-solving to the world around me. I love projects that blend applied math, engineering, and computer science in creative and unexpected ways.
-      </p>
-      <p>
-        I’m driven by curiosity and community, and believe in creating tools and ideas that can bring the two together. together. I like working on things that can spark genuine interest, not just within academic circles or among friends, but for a wider audience.
-      </p>
-      <p class="contact">
-        📬 Reach me at <a href="mailto:connor.huh@gmail.com">connor.huh@gmail.com</a>
-      </p>
-    </section>
-
-    <section class="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card">
-          <h3>Swiftle Solver</h3>
-          <p>Audio fingerprinting and heuristics to identify Taylor Swift tracks from short snippets. Solved 100% of puzzles.</p>
-          <a href="projects/swiftle.html" class="btn">Read More →</a>
-        </article>
-
-        <article class="project-card">
-          <h3>Barrier Options</h3>
-          <p>Modeling FX barrier option pricing with Brownian bridge corrections, animated simulations, and detailed code.</p>
-          <a href="projects/barrier.html" class="btn">Read More →</a>
-        </article>
-
-        <!-- More projects... -->
+  <body>
+    <canvas id="background-canvas"></canvas>
+    <nav class="navbar">
+      <div class="logo">Connor Huh</div>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle" />
+          <span class="slider round"></span>
+        </label>
       </div>
-    </section>
-
-    <section class="skills">
-      <h2>Skills & Interests</h2>
-      <ul>
-        <li>Mathematics: Probability, Graph Theory, Mathematical Modeling</li>
-        <li>Programming: Python, Swift, JavaScript</li>
-        <li>Machine Learning & Data Analysis</li>
-        <li>Computational Biology & Neuroscience</li>
-        <li>Algorithmic Problem Solving & Optimization</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Connor Huh • Crafted with math and curiosity</p>
-  </footer>
-
-  <script>
-    const toggle = document.getElementById('darkModeToggle');
-    toggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-  </script>
-  <script>
-    const canvas = document.getElementById('background-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const numParticles = 80;
-    let mouse = { x: null, y: null };
-    
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    
-    // Create particles
-    for (let i = 0; i < numParticles; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
-        radius: Math.random() * 2 + 1
+    </nav>
+  
+    <header class="header">
+      <div class="header-content">
+        <h1>Connor Huh</h1>
+        <p class="tagline">Exploring the world through math, code, and curiosity.</p>
+      </div>
+      <div class="header-bg-equation">
+        <span class="equation">∑<sub>n=1</sub><sup>∞</sup> 1/n² = π²/6</span>
+        <span class="equation">e<sup>iπ</sup> + 1 = 0</span>
+        <span class="equation">f(x) = ∫<sub>a</sub><sup>b</sup> g(t) dt</span>
+      </div>
+    </header>
+    <main>
+      <div class="graph-background" aria-hidden="true"></div>
+      <section class="about">
+        <h2>About Me</h2>
+        <p>
+          Hi! I’m Connor, a senior from the Bay Area passionate about applying mathematics, programming, and creative problem-solving to the world around me. I love projects that blend applied math, engineering, and computer science in creative and unexpected ways.
+        </p>
+        <p>
+          I’m driven by curiosity and community, and believe in creating tools and ideas that can bring the two together. together. I like working on things that can spark genuine interest, not just within academic circles or among friends, but for a wider audience.
+        </p>
+        <p class="contact">
+          📬 Reach me at <a href="mailto:connor.huh@gmail.com">connor.huh@gmail.com</a>
+        </p>
+      </section>
+  
+      <section class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Swiftle Solver</h3>
+            <p>Audio fingerprinting and heuristics to identify Taylor Swift tracks from short snippets. Solved 100% of puzzles.</p>
+            <a href="projects/swiftle.html" class="btn">Read More →</a>
+          </article>
+  
+          <article class="project-card">
+            <h3>Barrier Options</h3>
+            <p>Modeling FX barrier option pricing with Brownian bridge corrections, animated simulations, and detailed code.</p>
+            <a href="projects/barrier.html" class="btn">Read More →</a>
+          </article>
+  
+          <!-- More projects... -->
+        </div>
+      </section>
+  
+      <section class="skills">
+        <h2>Skills & Interests</h2>
+        <ul>
+          <li>Mathematics: Probability, Graph Theory, Mathematical Modeling</li>
+          <li>Programming: Python, Swift, JavaScript</li>
+          <li>Machine Learning & Data Analysis</li>
+          <li>Computational Biology & Neuroscience</li>
+          <li>Algorithmic Problem Solving & Optimization</li>
+        </ul>
+      </section>
+    </main>
+  
+    <footer>
+      <p>© 2025 Connor Huh • Crafted with math and curiosity</p>
+    </footer>
+  
+    <script>
+      const toggle = document.getElementById('darkModeToggle');
+      toggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
       });
-    }
-    
-    canvas.addEventListener('mousemove', function (e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    });
-    
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) {
-        let p = particles[i];
-    
-        p.x += p.vx;
-        p.y += p.vy;
-    
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-    
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(100, 100, 255, 0.5)";
-        ctx.fill();
-    
-        for (let j = i + 1; j < particles.length; j++) {
-          let p2 = particles[j];
-          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(100, 100, 255, ${1 - dist / 100})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-    
-        if (mouse.x && mouse.y) {
-          const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-          if (distToMouse < 150) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(255, 100, 100, ${1 - distToMouse / 150})`;
-            ctx.lineWidth = 0.4;
-            ctx.stroke();
-          }
-        }
-      }
-    
-      requestAnimationFrame(draw);
-    }
-    draw();
     </script>
+    <script>
+  const canvas = document.getElementById('background-canvas');
+  const ctx = canvas.getContext('2d');
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  
+  const spacing = 50;
+  let tick = 0;
+  
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    tick += 0.01;
+  
+    for (let x = 0; x < canvas.width; x += spacing) {
+      for (let y = 0; y < canvas.height; y += spacing) {
+        let pulse = Math.sin((x + y) * 0.01 + tick) * 1.5 + 2;
+  
+        ctx.beginPath();
+        ctx.arc(x, y, pulse, 0, 2 * Math.PI);
+        ctx.fillStyle = "rgba(120, 160, 255, 0.3)";
+        ctx.fill();
+      }
+    }
+  
+    requestAnimationFrame(draw);
+  }
+  
+  draw();
+</script>
+
 </body>
 </html>
