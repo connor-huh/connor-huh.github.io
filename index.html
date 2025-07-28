@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
 </head>
+<script>
+  const graphBg = document.querySelector('.graph-background');
+  window.addEventListener('mousemove', (e) => {
+    // Move grid background slightly based on mouse position
+    const x = e.clientX;
+    const y = e.clientY;
+    const moveX = (x / window.innerWidth) * 20;
+    const moveY = (y / window.innerHeight) * 20;
+    graphBg.style.backgroundPosition = `${moveX}px ${moveY}px, ${moveX}px ${moveY}px`;
+  });
+</script>
 <body>
   <nav class="navbar">
     <div class="logo">Connor Huh</div>
@@ -31,6 +42,7 @@
   </header>
 
   <main>
+    <div class="graph-background" aria-hidden="true"></div>
     <section class="about">
       <h2>About Me</h2>
       <p>
