@@ -98,39 +98,50 @@
       });
     </script>
     <script>
-  const canvas = document.getElementById('background-canvas');
-  const ctx = canvas.getContext('2d');
-  
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-  
-  const spacing = 50;
-  let tick = 0;
-  
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    tick += 0.01;
-  
-    for (let x = 0; x < canvas.width; x += spacing) {
-      for (let y = 0; y < canvas.height; y += spacing) {
-        let pulse = Math.sin((x + y) * 0.01 + tick) * 1.5 + 2;
-  
-        ctx.beginPath();
-        ctx.arc(x, y, pulse, 0, 2 * Math.PI);
-        ctx.fillStyle = "rgba(120, 160, 255, 0.3)";
-        ctx.fill();
+      const canvas = document.getElementById('background-canvas');
+      const ctx = canvas.getContext('2d');
+      
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
       }
-    }
-  
-    requestAnimationFrame(draw);
-  }
-  
-  draw();
-</script>
-
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      
+      // Generate multiple Lissajous curves with different parameters
+      const curves = Array.from({ length: 7 }, (_, i) => ({
+        A: Math.random() * canvas.width / 4 + 100,
+        B: Math.random() * canvas.height / 4 + 100,
+        a: Math.floor(Math.random() * 4 + 1),
+        b: Math.floor(Math.random() * 4 + 1),
+        delta: Math.random() * Math.PI,
+        color: `hsla(${Math.random() * 360}, 70%, 70%, 0.05)`,
+        phase: Math.random() * Math.PI * 2
+      }));
+      
+      let tick = 0;
+      function draw() {
+        tick += 0.01;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        curves.forEach(curve => {
+          ctx.beginPath();
+          const { A, B, a, b, delta, color, phase } = curve;
+          for (let t = 0; t <= Math.PI * 2; t += 0.01) {
+            const x = canvas.width / 2 + A * Math.sin(a * t + delta + phase + tick / 2);
+            const y = canvas.height / 2 + B * Math.sin(b * t + tick / 3);
+            if (t === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        });
+      
+        requestAnimationFrame(draw);
+      }
+      
+      draw();
+    </script>
 </body>
 </html>
