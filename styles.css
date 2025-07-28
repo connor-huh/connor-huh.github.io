@@ -111,16 +111,26 @@ input:checked + .slider:before {
   max-width: 500px;
 }
 
-.equation {
+.math-overlay {
   position: absolute;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   pointer-events: none;
-  z-index: 1;
-  text-shadow: 0 0 5px rgba(255,255,255,0.4);
-  font-weight: 500;
+  z-index: 0;
 }
 
+.equation {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.08); /* super faded */
+  font-family: 'Latin Modern Math', 'Times New Roman', serif;
+  white-space: nowrap;
+  z-index: -1;
+  transform: rotate(-10deg); /* gentle tilt */
+  user-select: none;
+}
 
 /* Large faded math equations in background */
 .header-bg-equation {
