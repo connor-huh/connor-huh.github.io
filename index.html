@@ -18,89 +18,8 @@
     graphBg.style.backgroundPosition = `${moveX}px ${moveY}px, ${moveX}px ${moveY}px`;
   });
 </script>
-<script>
-  const canvas = document.getElementById('background-canvas');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  const numParticles = 80;
-  let mouse = { x: null, y: null };
-  
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-  
-  // Create particles
-  for (let i = 0; i < numParticles; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.8,
-      vy: (Math.random() - 0.5) * 0.8,
-      radius: Math.random() * 2 + 1
-    });
-  }
-  
-  canvas.addEventListener('mousemove', function (e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-  
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particles.length; i++) {
-      let p = particles[i];
-  
-      // Move particle
-      p.x += p.vx;
-      p.y += p.vy;
-  
-      // Bounce off edges
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-  
-      // Draw particle
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(100, 100, 255, 0.5)";
-      ctx.fill();
-  
-      // Connect with nearby particles
-      for (let j = i + 1; j < particles.length; j++) {
-        let p2 = particles[j];
-        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-        if (dist < 100) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(100, 100, 255, ${1 - dist / 100})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-  
-      // Connect with mouse
-      if (mouse.x && mouse.y) {
-        const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        if (distToMouse < 150) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(255, 100, 100, ${1 - distToMouse / 150})`;
-          ctx.lineWidth = 0.4;
-          ctx.stroke();
-        }
-      }
-    }
-  
-    requestAnimationFrame(draw);
-  }
-  draw();
-  </script>
-
 <body>
+  <canvas id="background-canvas"></canvas>
   <nav class="navbar">
     <div class="logo">Connor Huh</div>
     <div class="toggle-container">
@@ -122,7 +41,6 @@
       <span class="equation">f(x) = ∫<sub>a</sub><sup>b</sup> g(t) dt</span>
     </div>
   </header>
-  <canvas id="background-canvas"></canvas>
   <main>
     <div class="graph-background" aria-hidden="true"></div>
     <section class="about">
@@ -179,5 +97,81 @@
       document.body.classList.toggle('dark-mode');
     });
   </script>
+  <script>
+    const canvas = document.getElementById('background-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const numParticles = 80;
+    let mouse = { x: null, y: null };
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Create particles
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
+        radius: Math.random() * 2 + 1
+      });
+    }
+    
+    canvas.addEventListener('mousemove', function (e) {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+    
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+    
+        p.x += p.vx;
+        p.y += p.vy;
+    
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(100, 100, 255, 0.5)";
+        ctx.fill();
+    
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(100, 100, 255, ${1 - dist / 100})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+    
+        if (mouse.x && mouse.y) {
+          const distToMouse = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+          if (distToMouse < 150) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(255, 100, 100, ${1 - distToMouse / 150})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+          }
+        }
+      }
+    
+      requestAnimationFrame(draw);
+    }
+    draw();
+    </script>
 </body>
 </html>
