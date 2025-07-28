@@ -154,7 +154,7 @@ input:checked + .slider:before {
     height: 100vh;
     z-index: -1;
     pointer-events: none;
-    background: black; /* Optional: or use dark gray to blend with dark mode */
+    background: transparent; /* Optional: or use dark gray to blend with dark mode */
 }
 
 /* MAIN CONTENT */
