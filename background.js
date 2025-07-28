@@ -36,4 +36,43 @@ for (let i = 0; i < numNodes; i++) {
 }
 
 let mouseX = 0;
-let mouseY
+let mouseY = 0;
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX / width - 0.5;
+  mouseY = e.clientY / height - 0.5;
+});
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "rgba(180,180,255,0.3)";
+  ctx.fillStyle = "rgba(255,255,255,0.9)";
+
+  nodes.forEach((node) => {
+    // Parallax effect based on mouse
+    const parallaxX = node.baseX + mouseX * 30 * Math.cos(node.angle) * 1.5;
+    const parallaxY = node.baseY + mouseY * 30 * Math.sin(node.angle) * 1.5;
+
+    node.currentX = parallaxX;
+    node.currentY = parallaxY;
+
+    // Draw node
+    ctx.beginPath();
+    ctx.arc(parallaxX, parallaxY, node.radius, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Draw edges
+  edges.forEach(([i, j]) => {
+    const n1 = nodes[i];
+    const n2 = nodes[j];
+    ctx.beginPath();
+    ctx.moveTo(n1.currentX, n1.currentY);
+    ctx.lineTo(n2.currentX, n2.currentY);
+    ctx.stroke();
+  });
+
+  requestAnimationFrame(draw);
+}
+
+requestAnimationFrame(draw);
