@@ -7,7 +7,7 @@
   --card-bg: #fff;
   --card-shadow: rgba(0, 0, 0, 0.1);
   --link-color: #6c63ff;
-  --font-base: 18px;
+  --font-base: 20px;
 }
 
 body.dark-mode {
@@ -87,7 +87,7 @@ input:checked + .slider:before {
 
 /* HEADER */
 .header {
-  padding: 6rem 3rem 5rem;
+  padding: 6rem 3rem 3rem 3rem;
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
@@ -131,17 +131,34 @@ input:checked + .slider:before {
   z-index: 0;
 }
 
+.graph-background {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100vw;
+  height: 80vh;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(rgba(150, 150, 150, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 150, 150, 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transition: background-position 0.3s ease;
+}
+
 /* MAIN CONTENT */
 main {
   max-width: 1100px;
-  margin: -3rem auto 4rem auto;
-  padding: 0 3rem;
+  margin: 0 auto 4rem auto;
+  padding: 4rem 3rem 3rem 3rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 5rem;
   z-index: 1;
   position: relative;
   color: var(--text);
+  min-height: 80vh;
+  background: transparent;
 }
 
 /* SECTION HEADERS */
@@ -158,10 +175,10 @@ h2 {
 
 /* ABOUT */
 .about p {
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   max-width: 720px;
-  margin-bottom: 1rem;
-  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
 }
 
 .about .contact a {
@@ -253,6 +270,9 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 700px) {
+  :root {
+    --font-base: 18px;
+  }
   .header-content h1 {
     font-size: 2.6rem;
   }
@@ -262,9 +282,12 @@ footer {
   }
   main {
     margin: -2rem 1rem 3rem 1rem;
-    padding: 0 1rem;
+    padding: 3rem 1rem 3rem 1rem;
   }
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  .about p, .about .contact {
+    font-size: 1.15rem;
   }
 }
