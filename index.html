@@ -4,96 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connor Huh</title>
-  <link rel="stylesheet" href="/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-    <div class="nav-brand">Connor Huh</div>
-  
-    <div class="nav-right">
-      <ul class="navbar">
-        <li><a href="/">Home</a></li>
-        <li><a href="/projects">Projects</a></li>
-      </ul>
-  
-      <label class="theme-switch" for="mode-toggle">
-        <input type="checkbox" id="mode-toggle" />
-        <span class="slider"></span>
-        <span class="emoji sun">☀️</span>
-        <span class="emoji moon">🌙</span>
-      </label>
-    </div>
-  </nav>
   <header>
-    <h1>Home</h1>
-  </header>
-</body>
-  <main>
-    <div class="content">
-        <section class="mb-10">
-          <h2 class="text-2xl font-semibold mb-4">About me</h2>
-          <p class="text-gray-800 leading-relaxed text-lg mb-4">
-            Hi! I'm Connor, a senior in high school from the Bay Area with a strong interest in mathematics. More broadly, I enjoy applying algorithmic and logical ways of thinking to the world around me. I’m drawn to projects that blend applied math, engineering, and/or computer science in creative and unexpected ways.
-          </p>
-          <p class="text-gray-800 leading-relaxed text-lg mb-4">
-            I'm passionate about curiosity and community, and believe in building tools and ideas that can bring the two together. I like working on things that can have an impact not just within academic circles or among friends, but for a wider audience. I see STEM as a way to create fun and accessible experiences that spark natural curiosity and invite others to explore.
-          </p>
-          <p class="text-gray-800 leading-relaxed text-lg">
-            This site is where I keep track of some of those ideas, projects, and experiments. Thanks for visiting!
-          </p>
-        </section>
-      <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4">Get in touch</h2>
-        <p class="text-gray-700 leading-relaxed">
-          I'm always open to conversations! You can reach me at <a href="mailto:connorhhuh@gmail.com" class="text-blue-500 underline">connorhhuh@gmail.com</a>.
-        </p>
-      </section>
+    <nav class="navbar">
+      <div class="logo">Connor Huh</div>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </nav>
+    <div class="intro">
+      <h1>Hi, I’m Connor 👋</h1>
+      <p>I'm a senior from the Bay Area who loves using math, code, and creative logic to build things. This site is my playground — a home for my ideas, projects, and experiments.</p>
     </div>
-  </main>
+    <div class="divider slant-down"></div>
+  </header>
+
+  <section class="about-section">
+    <h2>About Me</h2>
+    <p>
+      I’m especially drawn to projects that apply mathematics, engineering, and computer science in expressive and meaningful ways. I believe in designing tools that spark curiosity — not just for specialists, but for anyone willing to explore.
+    </p>
+    <p>
+      Outside of problem-solving, I care deeply about community. Whether I’m running a school event or contributing to open-source, I like building things that bring people together.
+    </p>
+    <p class="contact">
+      📬 Reach me at: <a href="mailto:connor.huh@gmail.com">connor.huh@gmail.com</a>
+    </p>
+  </section>
+
+  <div class="divider slant-up"></div>
+
+  <section class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Swiftle Solver</h3>
+        <p>Used audio fingerprinting + frequency heuristics to identify Taylor Swift tracks from 1-second snippets. Solved 100% of puzzles.</p>
+        <a href="projects/swiftle.html">Read more →</a>
+      </div>
+      <div class="project-card">
+        <h3>Barrier Options</h3>
+        <p>Modeled and simulated FX barrier option pricing using Brownian bridge corrections. Includes animated paths and code.</p>
+        <a href="projects/barrier.html">Read more →</a>
+      </div>
+      <!-- Add more project cards as needed -->
+    </div>
+  </section>
+
   <footer>
-    © 2025 Connor Huh. All rights reserved.
+    <p>© 2025 Connor Huh • Built with math and a lot of curiosity</p>
   </footer>
-  <!-- JS scroll behavior -->
+
   <script>
-    let lastScrollY = window.scrollY;
-    const nav = document.querySelector('nav');
-  
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        nav.classList.add('hidden');
-      } else {
-        nav.classList.remove('hidden');
-      }
-      lastScrollY = currentScrollY;
-    });
-  
-    // Dark mode toggle
-    const modeToggle = document.getElementById("mode-toggle");
-    const body = document.body;
-  
-    // On load, set toggle position to current theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      body.classList.add('dark');
-      modeToggle.checked = true;
-    } else {
-      body.classList.remove('dark');
-      modeToggle.checked = false;
-    }
-  
-    modeToggle.addEventListener("change", function () {
-      if (this.checked) {
-        body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
     });
   </script>
 </body>
