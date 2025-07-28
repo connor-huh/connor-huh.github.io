@@ -1,437 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
-
-/* === Theme Variables === */
 :root {
-  --font-base: 25px;
-  --font-normal: 1.25rem;
-  --font-lg: 1.5rem;
-  --font-xl: 2rem;
-  --font-xxl: 3rem;
-  --padding-base: 1.5rem;
-  --padding-lg: 2rem;
-  
-  --bg: #f5f7fa;
-  --text: #1e293b;
-  --subtext: #475569;
-  --navbar-bg: rgba(255, 255, 255, 0.75);
-  --navbar-button-bg: #e0e0e0;
-  --card-bg: #ffffff;
-  --button-bg: #e0e0e0;
-  --button-hover-bg: #d4d4d4;
-  --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
-  --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);
-  --button-text: #0f172a;
-  --accent: #6366f1;
-  --accent-hover: #8b5cf6;
-  --toggle-bg: #222;
-  --toggle-bg-dark: #ddd;
+  --bg: #fdfcfb;
+  --text: #222;
+  --accent: #7e5bef;
+  --bg-accent: #f1effa;
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
 }
 
-body.dark {
-  --bg: #0f172a;
-  --text: #f1f5f9;
-  --subtext: #cbd5e1;
-  --navbar-bg: rgba(30, 41, 59, 0.85);
-  --navbar-button-bg: #2a2a2a;
-  --card-bg: #1e293b;  
-  --button-bg: #2a2a2a;
-  --button-hover-bg: #444;
-  --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
-  --button-hover: linear-gradient(135deg, #4f46e5, #6366f1);
-  --button-text: #ffffff;
-  --accent: #6366f1;
-  --accent-hover: #8b5cf6;
-  --toggle-bg: #222;
-  --toggle-bg-dark: #ddd;
+body.dark-mode {
+  --bg: #0f0f1b;
+  --text: #f0f0f0;
+  --accent: #a78bfa;
+  --bg-accent: #1c1c2d;
+  --card-bg: #1c1c2a;
+  --card-shadow: rgba(255, 255, 255, 0.05);
 }
 
-/* === Base Styles === */
 body {
-  font-size: var(--font-base);
-  line-height: 1.75;
-  font-family: 'Rubik', sans-serif;
-  background: var(--bg) !important;
-  color: var(--text) !important;
   margin: 0;
-  padding: 0;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Rubik', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
 }
 
-main {
-  padding: 2rem;
-  font-size: var(--font-base);
-  text-align: left;
-}
-
-/* === Header === */
 header {
-  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  background: var(--accent);
   color: white;
-  text-align: center;
-  padding: 3rem 1rem 2rem 1rem;
-}
-
-header h1 {
-  font-size: calc(var(--font-xxl) * 1.15);
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: var(--font-xl);
-  margin-bottom: 0.75rem;
-}
-
-h3 {
-  font-size: var(--font-lg);
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: calc(var(--font-normal) * 1.2);
-  color: #e0e7ff;
-}
-
-header h1,
-header p {
-  color: var(--text);
-  transition: color 0.3s ease;
-}
-
-section, article {
-  font-size: var(--font-normal);
-  line-height: 1.75;
-}
-
-.content {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  font-size: var(--font-base);
-  line-height: 1.75;
-  font-family: 'Rubik', sans-serif;
-}
-
-@media (min-width: 768px) {
-  .content {
-    padding: 1rem 3rem;   /* slightly more padding on larger screens */
-  }
-}
-
-/* === Navbar === */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--navbar-bg);
-  backdrop-filter: blur(10px);
-  padding: var(--padding-base) var(--padding-lg);
-  display: flex;
-  justify-content: space-between; /* space between brand and nav/toggle */
-  align-items: center;
-  height: 60px;
-  border-radius: 0 0 1rem 1rem;
-  z-index: 9999;
-  box-sizing: border-box;
-}
-
-/* Brand name on the far left */
-.nav-brand {
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: var(--text-color);
-  padding-left: 0.5rem;
-}
-
-/* Nav links on the right */
-nav .nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Navbar buttons */
-ul.navbar {
-  display: flex;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-ul.navbar li a {
-  display: flex;
-  align-items: center;
-  font-size: 1.1rem;
-  padding: 0.7rem 1.3rem;
-  height: 52px;
-  background-color: transparent;
-  color: var(--text);
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 4rem 2rem;
   position: relative;
-  border: none; /* removed thin border */
-  box-shadow: none;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
-ul.navbar li a:hover {
-  background-color: var(--button-bg);
-  color: var(--accent-hover);
-}
-
-/* Hover underline animation */
-ul.navbar li a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: 6px; /* move up slightly */
-  left: 0;
-  background: var(--accent-hover);
-  transition: width 0.3s ease;
-}
-
-ul.navbar li a:hover::after {
-  width: 100%;
-}
-
-/* === Dark Mode Slider === */
-.theme-switch {
-  position: relative;
-  width: 70px;
-  height: 38px;
+.navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border-radius: 30px;
-  padding: 0 8px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 1.6rem;
-  box-sizing: border-box;
-  background-color: var(--toggle-bg);
-}
-
-body.dark .theme-switch {
-  background-color: var(--toggle-bg-dark);
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  position: absolute;
-}
-
-.slider {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 30px;
-  height: 30px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-
-.theme-switch input:checked + .slider {
-  transform: translateX(32px);
-}
-
-.theme-switch .emoji {
-  pointer-events: none; /* so click goes to checkbox */
-  z-index: 1;
-  user-select: none;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  line-height: 1;
-  font-size: 1.6rem;
-  color: var(--subtext);
 }
 
-.theme-switch .emoji.sun {
-  order: 1;
+.logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.theme-switch .emoji.moon {
-  order: 2;
+.intro {
+  max-width: 600px;
+  margin-top: 3rem;
 }
 
-/* === Projects Grid === */
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  height: 80px;
+  background: var(--bg);
+}
+
+.slant-down {
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.slant-up {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+.about-section, .projects-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section h2, .projects-section h2 {
+  font-size: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.contact {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* bump min width to 400px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
-  max-width: 900px;           /* constrain max grid width for better control */
-  margin-left: auto;
-  margin-right: auto;
 }
 
-
-.project-date {
-  font-size: 0.9rem !important;         /* smaller font */
-  font-style: italic;
-  color: #888 !important;             /* lighter gray */
-  margin-bottom: 0.4rem;
-  display: block;             /* make sure it takes full width */
-}
-
-/* === Project Card === */
 .project-card {
-  background-color: var(--card-bg);
-  color: var(--text);
-  border-radius: 1rem;
+  background: var(--card-bg);
+  border-radius: 1.5rem;
   padding: 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
-}
-
-@media (min-width: 850px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 900px;
-  }
+  box-shadow: 0 10px 20px var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: scale(1.03) rotate(-0.5deg);
+  box-shadow: 0 14px 28px var(--card-shadow);
 }
 
-/* === Project Title === */
-.project-card h2,
-.project-title {
-  font-size: var(--font-xl); /* bigger title */
-  margin-bottom: 0.25rem;
-  color: var(--text);
+.project-card h3 {
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 0.5rem;
 }
 
-/* === Publish Date === */
-.project-date {
-  font-size: var(--font-base);
-  color: #D3D3D3;
-  margin-bottom: 1rem;
-}
-
-/* === Description === */
-.project-card p,
-.project-description {
-  font-size: var(--font-lg); /* slightly bigger description */
-  margin-bottom: 1.25rem;
-  color: var(--subtext);
-}
-
-/* === Buttons Container === */
-.project-buttons {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-/* === Buttons inside Cards === */
-/* === Buttons inside project cards (bigger "Read More" buttons) === */
 .project-card a {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.8rem 2.5rem;       /* bigger padding for wider buttons */
-  font-size: 1.1rem;            /* larger text */
+  color: var(--accent);
+  text-decoration: none;
   font-weight: 600;
-  background: var(--button-gradient);
-  color: var(--button-text);
-  text-decoration: none;
-  border-radius: 9999px;        /* pill-shaped */
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
-  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.project-card a:hover {
-  transform: scale(1.05);
-  background: var(--button-hover);
-}
-
-/* === Smaller buttons elsewhere (e.g. project-buttons) === */
-.project-buttons a {
-  display: inline-block;
-  padding: 0.4rem 1rem;         /* smaller padding */
-  font-size: 1rem;              /* smaller text */
-  font-weight: 500;
-  background: var(--button-gradient);
-  color: var(--button-text);
-  text-decoration: none;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
-  transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.project-buttons a:hover {
-  transform: scale(1.05);
-  background: var(--button-hover);
-}
-
-.project-buttons a,
-.project-card a,
-.project-button {
-  border: none; /* Add this */
-}
-
-/* === General reusable button style (optional) === */
-.project-button {
-  background: var(--button-gradient);
-  color: var(--button-text);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  margin-top: 2rem;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.project-button:hover {
-  background: var(--button-hover);
-  transform: translateY(-2px);
-}
-
-/* === Footer === */
 footer {
   text-align: center;
+  padding: 2rem;
   font-size: 0.9rem;
-  margin-top: 4rem;
-  padding-bottom: 2rem;
-  color: #9ca3af;
+  opacity: 0.7;
 }
 
-/* === Swiftle Page === */
-
-.projects-page main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+/* Dark/light toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
 }
 
-.video-player {
-  max-width: 800px;
-  width: 100%;
-  border-radius: 12px;
-  margin: 2rem auto;
-  display: block;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
 }
 
-.caption {
-  text-align: center;
-  font-style: italic;
-  font-size: 1.05rem; /* was 1rem */
-  margin-top: 0.2rem;  /* tighter margin */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
 }
