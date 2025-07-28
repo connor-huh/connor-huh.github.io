@@ -3,39 +3,47 @@ const ctx = canvas.getContext("2d");
 
 let width, height;
 function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
 }
 resize();
 window.addEventListener("resize", resize);
 
-const curves = Array.from({ length: 10 }, (_, i) => ({
-    color: `hsl(${Math.random() * 360}, 70%, 60%)`,
-    phase: Math.random() * Math.PI * 2,
-    freq: 0.0005 + Math.random() * 0.001,
-    amp: 50 + Math.random() * 100,
-    offsetX: Math.random() * width,
-    offsetY: Math.random() * height,
-    speed: 0.002 + Math.random() * 0.004,
+let mouseX = 0;
+let mouseY = 0;
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX / width;
+  mouseY = e.clientY / height;
+});
+
+const curves = Array.from({ length: 8 }, () => ({
+  color: `hsl(${Math.random() * 360}, 70%, 70%)`,
+  phase: Math.random() * Math.PI * 2,
+  freq: 0.001 + Math.random() * 0.001,
+  amp: 50 + Math.random() * 100,
+  offsetY: Math.random() * height,
 }));
 
-function draw(t) {
-    ctx.clearRect(0, 0, width, height);
-    ctx.lineWidth = 1.5;
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+  ctx.lineWidth = 1.5;
+  ctx.globalAlpha = 0.15;
 
-    curves.forEach(curve => {
-        ctx.beginPath();
-        for (let i = 0; i < width; i += 2) {
-            const x = i;
-            const y = Math.sin(curve.freq * i + t * curve.speed + curve.phase) * curve.amp + curve.offsetY;
-            if (i === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
-        }
-        ctx.strokeStyle = curve.color;
-        ctx.globalAlpha = 0.15;
-        ctx.stroke();
-    });
+  curves.forEach((curve, i) => {
+    ctx.beginPath();
+    for (let x = 0; x < width; x += 2) {
+      const y =
+        Math.sin(curve.freq * x + curve.phase + mouseX * 5) *
+          curve.amp *
+          (0.5 + mouseY) +
+        curve.offsetY;
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = curve.color;
+    ctx.stroke();
+  });
 
-    requestAnimationFrame(draw);
+  requestAnimationFrame(draw);
 }
 requestAnimationFrame(draw);
