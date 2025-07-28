@@ -6,6 +6,10 @@
   <title>Connor Huh - Math & STEM Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <script>
   const graphBg = document.querySelector('.graph-background');
@@ -36,13 +40,12 @@
         <h1>Connor Huh</h1>
         <p class="tagline">Exploring the world through math, code, and curiosity.</p>
       </div> 
-      <div class="math-overlay">
-        <img src="assets/equation1.png" class="equation" style="top: 10%; left: 70%; width: 80px;" alt="PDF Equation" />
-        <img src="assets/equation2.png" class="equation" style="top: 30%; left: 75%; width: 90px;" alt="Bayes Theorem" />
-        <img src="assets/equation3.png" class="equation" style="top: 50%; left: 65%; width: 70px;" alt="CLT" />
-        <img src="assets/equation4.png" class="equation" style="top: 70%; left: 80%; width: 60px;" alt="Markov Chain" />
-        <img src="assets/equation5.png" class="equation" style="top: 20%; left: 85%; width: 75px;" alt="Gaussian Curve" />
-      </div>
+      <div class="equation" style="top: 10%; left: 70%;">\( f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{ -\frac{(x - \mu)^2}{2\sigma^2} } \)</div>
+      <div class="equation" style="top: 30%; left: 75%;">\( P(A|B) = \frac{P(B|A)P(A)}{P(B)} \)</div>
+      <div class="equation" style="top: 50%; left: 65%;">\( \frac{\bar{X} - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1) \)</div>
+      <div class="equation" style="top: 70%; left: 80%;">\( P(X_{n+1} \mid X_n, \dots, X_0) = P(X_{n+1} \mid X_n) \)</div>
+      <div class="equation" style="top: 20%; left: 85%;">\( \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi} \)</div>
+
     </header>
     <main>
       <div class="graph-background" aria-hidden="true"></div>
