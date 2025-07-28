@@ -157,6 +157,30 @@ input:checked + .slider:before {
     background: transparent; /* Optional: or use dark gray to blend with dark mode */
 }
 
+#parallax-dog-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#parallax-dog {
+  width: 60vmin;
+  height: auto;
+  opacity: 0.1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.1s ease-out;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  fill: currentColor;
+  color: var(--accent-color, #4FC3F7);
+}
+
 /* MAIN CONTENT */
 main {
   max-width: 1100px;
