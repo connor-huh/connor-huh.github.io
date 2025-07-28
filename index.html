@@ -1,65 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connor Huh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connor Huh - Math & STEM Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Connor Huh</div>
-      <div class="toggle-container">
-        <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
-          <span class="slider round"></span>
-        </label>
-      </div>
-    </nav>
-    <div class="intro">
-      <h1>Hi, I’m Connor 👋</h1>
-      <p>I'm a senior from the Bay Area who loves using math, code, and creative logic to build things. This site is my playground — a home for my ideas, projects, and experiments.</p>
+  <nav class="navbar">
+    <div class="logo">Connor Huh</div>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle" />
+        <span class="slider round"></span>
+      </label>
     </div>
-    <div class="divider slant-down"></div>
+  </nav>
+
+  <header class="header">
+    <div class="header-content">
+      <h1>Connor Huh</h1>
+      <p class="tagline">Exploring the world through math, code, and curiosity.</p>
+    </div>
+    <div class="header-bg-equation">
+      <span class="equation">∑<sub>n=1</sub><sup>∞</sup> 1/n² = π²/6</span>
+      <span class="equation">e<sup>iπ</sup> + 1 = 0</span>
+      <span class="equation">f(x) = ∫<sub>a</sub><sup>b</sup> g(t) dt</span>
+    </div>
   </header>
 
-  <section class="about-section">
-    <h2>About Me</h2>
-    <p>
-      I’m especially drawn to projects that apply mathematics, engineering, and computer science in expressive and meaningful ways. I believe in designing tools that spark curiosity — not just for specialists, but for anyone willing to explore.
-    </p>
-    <p>
-      Outside of problem-solving, I care deeply about community. Whether I’m running a school event or contributing to open-source, I like building things that bring people together.
-    </p>
-    <p class="contact">
-      📬 Reach me at: <a href="mailto:connor.huh@gmail.com">connor.huh@gmail.com</a>
-    </p>
-  </section>
+  <main>
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I’m Connor, a senior from the Bay Area passionate about using mathematics, programming, and creative problem-solving to build impactful projects. I love blending applied math, engineering, and computer science in unexpected ways.
+      </p>
+      <p>
+        I’m driven by curiosity and community — creating tools and ideas that invite others to explore and collaborate.
+      </p>
+      <p class="contact">
+        📬 Reach me at: <a href="mailto:connor.huh@gmail.com">connor.huh@gmail.com</a>
+      </p>
+    </section>
 
-  <div class="divider slant-up"></div>
+    <section class="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>Swiftle Solver</h3>
+          <p>Audio fingerprinting and heuristics to identify Taylor Swift tracks from short snippets. Solved 100% of puzzles.</p>
+          <a href="projects/swiftle.html" class="btn">Read More →</a>
+        </article>
 
-  <section class="projects-section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Swiftle Solver</h3>
-        <p>Used audio fingerprinting + frequency heuristics to identify Taylor Swift tracks from 1-second snippets. Solved 100% of puzzles.</p>
-        <a href="projects/swiftle.html">Read more →</a>
+        <article class="project-card">
+          <h3>Barrier Options</h3>
+          <p>Modeling FX barrier option pricing with Brownian bridge corrections, animated simulations, and detailed code.</p>
+          <a href="projects/barrier.html" class="btn">Read More →</a>
+        </article>
+
+        <!-- More projects... -->
       </div>
-      <div class="project-card">
-        <h3>Barrier Options</h3>
-        <p>Modeled and simulated FX barrier option pricing using Brownian bridge corrections. Includes animated paths and code.</p>
-        <a href="projects/barrier.html">Read more →</a>
-      </div>
-      <!-- Add more project cards as needed -->
-    </div>
-  </section>
+    </section>
+
+    <section class="skills">
+      <h2>Skills & Interests</h2>
+      <ul>
+        <li>Mathematics: Probability, Graph Theory, Mathematical Modeling</li>
+        <li>Programming: Python, Swift, JavaScript</li>
+        <li>Machine Learning & Data Analysis</li>
+        <li>Computational Biology & Neuroscience</li>
+        <li>Algorithmic Problem Solving & Optimization</li>
+      </ul>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Connor Huh • Built with math and a lot of curiosity</p>
+    <p>© 2025 Connor Huh • Crafted with math and curiosity</p>
   </footer>
 
   <script>
