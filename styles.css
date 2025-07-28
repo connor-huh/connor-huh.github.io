@@ -147,15 +147,15 @@ input:checked + .slider:before {
 }
 
 #background-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    background: black; /* Optional: or use dark gray to blend with dark mode */
 }
-
 
 /* MAIN CONTENT */
 main {
