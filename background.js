@@ -9,18 +9,12 @@ function resize() {
 window.addEventListener("resize", resize);
 resize();
 
-let edgeProb = parseFloat(document.getElementById("pSlider").value);
-
-document.getElementById("pSlider").addEventListener("input", (e) => {
-  edgeProb = parseFloat(e.target.value);
-  document.getElementById("pValue").textContent = edgeProb.toFixed(2);
-  nextEdges = generateEdges();
-  lastSwitchTime = Date.now(); // reset to begin fade from current to new
-});
-
+// Adjustable probability of edge creation (0.06 works well visually)
+const EDGE_PROB = 0.06;
 const NODE_COUNT = 50;
 const EDGE_REFRESH_INTERVAL = 5000; // ms
 
+// Create nodes with random positions and gentle movement
 const NODES = Array.from({ length: NODE_COUNT }, () => ({
   x: Math.random() * width,
   y: Math.random() * height,
@@ -36,7 +30,7 @@ function generateEdges() {
   const edges = [];
   for (let i = 0; i < NODE_COUNT; i++) {
     for (let j = i + 1; j < NODE_COUNT; j++) {
-      if (Math.random() < edgeProb) {
+      if (Math.random() < EDGE_PROB) {
         edges.push([i, j]);
       }
     }
@@ -51,7 +45,7 @@ function draw() {
 
   const now = Date.now();
   const timeSinceSwitch = now - lastSwitchTime;
-  const transitionProgress = Math.min(timeSinceSwitch / 1000, 1); // 1 sec fade
+  const transitionProgress = Math.min(timeSinceSwitch / 1000, 1); // fade duration: 1 sec
 
   if (timeSinceSwitch >= EDGE_REFRESH_INTERVAL) {
     currentEdges = nextEdges;
@@ -59,15 +53,20 @@ function draw() {
     lastSwitchTime = now;
   }
 
+  // Draw old edges fading out
   drawEdges(currentEdges, 1 - transitionProgress);
+
+  // Draw new edges fading in
   drawEdges(nextEdges, transitionProgress);
 
+  // Draw nodes
   NODES.forEach((n) => {
     ctx.beginPath();
-    ctx.arc(n.x, n.y, 3.5, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(80, 80, 255, 0.75)";
+    ctx.arc(n.x, n.y, 3.8, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(80, 80, 255, 0.8)";
     ctx.fill();
 
+    // Update position with bounce at edge
     n.x += n.vx;
     n.y += n.vy;
     if (n.x < 0 || n.x > width) n.vx *= -1;
@@ -79,7 +78,7 @@ function draw() {
 
 function drawEdges(edges, alpha) {
   ctx.strokeStyle = `rgba(100, 100, 255, ${0.3 * alpha})`;
-  ctx.lineWidth = 1.2;
+  ctx.lineWidth = 1.3;
   edges.forEach(([i, j]) => {
     const a = NODES[i], b = NODES[j];
     ctx.beginPath();
