@@ -9,8 +9,16 @@ function resize() {
 window.addEventListener("resize", resize);
 resize();
 
+let edgeProb = parseFloat(document.getElementById("pSlider").value);
+
+document.getElementById("pSlider").addEventListener("input", (e) => {
+  edgeProb = parseFloat(e.target.value);
+  document.getElementById("pValue").textContent = edgeProb.toFixed(2);
+  nextEdges = generateEdges();
+  lastSwitchTime = Date.now(); // reset to begin fade from current to new
+});
+
 const NODE_COUNT = 50;
-const EDGE_PROB = 0.06;
 const EDGE_REFRESH_INTERVAL = 5000; // ms
 
 const NODES = Array.from({ length: NODE_COUNT }, () => ({
@@ -28,7 +36,7 @@ function generateEdges() {
   const edges = [];
   for (let i = 0; i < NODE_COUNT; i++) {
     for (let j = i + 1; j < NODE_COUNT; j++) {
-      if (Math.random() < EDGE_PROB) {
+      if (Math.random() < edgeProb) {
         edges.push([i, j]);
       }
     }
@@ -43,27 +51,23 @@ function draw() {
 
   const now = Date.now();
   const timeSinceSwitch = now - lastSwitchTime;
-  const transitionProgress = Math.min(timeSinceSwitch / 1000, 1); // 1 second fade
+  const transitionProgress = Math.min(timeSinceSwitch / 1000, 1); // 1 sec fade
 
-  // At interval, update edges
   if (timeSinceSwitch >= EDGE_REFRESH_INTERVAL) {
     currentEdges = nextEdges;
     nextEdges = generateEdges();
     lastSwitchTime = now;
   }
 
-  // Draw blended edges
   drawEdges(currentEdges, 1 - transitionProgress);
   drawEdges(nextEdges, transitionProgress);
 
-  // Draw nodes
   NODES.forEach((n) => {
     ctx.beginPath();
-    ctx.arc(n.x, n.y, 3.5, 0, Math.PI * 2); // larger node
+    ctx.arc(n.x, n.y, 3.5, 0, Math.PI * 2);
     ctx.fillStyle = "rgba(80, 80, 255, 0.75)";
     ctx.fill();
 
-    // Update position
     n.x += n.vx;
     n.y += n.vy;
     if (n.x < 0 || n.x > width) n.vx *= -1;
